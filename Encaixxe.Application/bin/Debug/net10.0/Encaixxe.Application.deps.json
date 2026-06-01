@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Encaixxe.Application/1.0.0": {
+        "dependencies": {
+          "Encaixxe.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Encaixxe.Application.dll": {}
+        }
+      },
+      "Encaixxe.Domain/1.0.0": {
+        "runtime": {
+          "Encaixxe.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Encaixxe.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Encaixxe.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

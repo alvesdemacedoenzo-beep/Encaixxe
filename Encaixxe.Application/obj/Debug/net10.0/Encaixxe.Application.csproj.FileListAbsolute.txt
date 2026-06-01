@@ -1,0 +1,15 @@
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\bin\Debug\net10.0\Encaixxe.Application.deps.json
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\bin\Debug\net10.0\Encaixxe.Application.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\bin\Debug\net10.0\Encaixxe.Application.pdb
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\bin\Debug\net10.0\Encaixxe.Domain.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\bin\Debug\net10.0\Encaixxe.Domain.pdb
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.csproj.AssemblyReference.cache
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.AssemblyInfoInputs.cache
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.AssemblyInfo.cs
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.csproj.CoreCompileInputs.cache
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.2C833106.Up2Date
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\refint\Encaixxe.Application.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\Encaixxe.Application.pdb
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Application\obj\Debug\net10.0\ref\Encaixxe.Application.dll

@@ -1,0 +1,74 @@
+﻿@model Encaixxe.Web.Models.PagedResultViewModel<Encaixxe.Web.Models.ProdutoViewModel>?
+
+@{
+    ViewData["Title"] = "Admin - Produtos";
+}
+
+<section class="admin-page py-5">
+    <div class="container">
+        <div class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <span class="section-subtitle">Admin</span>
+                <h1>Produtos</h1>
+                <p>Gerencie os produtos exibidos no catálogo.</p>
+            </div>
+
+            <a class="btn btn-gold" href="/Admin/Produtos/Create">
+                Novo Produto
+            </a>
+        </div>
+        <div class="admin-table-card">
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th class="text-end">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model?.Items != null && Model.Items.Any())
+            {
+                foreach (var produto in Model.Items)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Codigo</td>
+                        <td>@produto.CategoriaNome</td>
+                        <td>@(produto.Preco.HasValue ? produto.Preco.Value.ToString("C") : "Consultar")</td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <a class="btn btn-sm btn-dark"
+                                           href="/Admin/Produtos/Edit/@produto.Id">
+                                            Editar
+                                        </a>
+
+                                        <form method="post"
+                                              action="/Admin/Produtos/Delete/@produto.Id">
+                                            <button class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Deseja excluir este produto?')">
+                                                Excluir
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">Nenhum produto encontrado.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        </div>
+        <a class="btn btn-outline-dark admin-back-btn"
+           href="/Admin">
+            ← Voltar ao Painel
+        </a>
+    </div>
+</section>

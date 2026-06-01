@@ -1,0 +1,69 @@
+﻿@model List<Encaixxe.Web.Models.MarcaViewModel>
+
+@{
+    ViewData["Title"] = "Admin - Marcas";
+}
+
+<section class="admin-page py-5">
+    <div class="container">
+        <div class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <span class="section-subtitle">Admin</span>
+                <h1>Marcas</h1>
+                <p>Gerencie as marcas disponíveis no catálogo.</p>
+            </div>
+
+            <a class="btn btn-gold" href="/Admin/Marcas/Create">
+                Nova Marca
+            </a>
+        </div>
+        <div class="admin-table-card">
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th class="text-end">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var marca in Model)
+                {
+                    <tr>
+                        <td>@marca.Nome</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-dark"
+                               href="/Admin/Marcas/Edit/@marca.Id">
+                                Editar
+                            </a>
+
+                            <form method="post"
+                                  action="/Admin/Marcas/Delete/@marca.Id"
+                                  class="d-inline">
+                                <button class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Deseja excluir esta marca?')">
+                                    Excluir
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2" class="text-center">
+                        Nenhuma marca encontrada.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        </div>
+        <a class="btn btn-outline-dark admin-back-btn"
+           href="/Admin">
+            ← Voltar ao Painel
+        </a>
+    </div>
+</section>

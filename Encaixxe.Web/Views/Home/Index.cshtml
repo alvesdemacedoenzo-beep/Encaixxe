@@ -1,0 +1,149 @@
+﻿@model Encaixxe.Web.Models.PagedResultViewModel<Encaixxe.Web.Models.ProdutoViewModel>?
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active hero-slide hero-slide-1">
+            <div class="container hero-content">
+                <span class="hero-badge">Produtos Agraplast</span>
+                <h1>Organização que combina com sua casa</h1>
+                <p>Estantes, gaveteiros, mesas e organizadores com praticidade, resistência e estilo.</p>
+
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="/Produtos" class="btn btn-gold">Ver catálogo</a>
+                    <a href="https://wa.me/5500000000000" class="btn btn-outline-gold">Falar no WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item hero-slide hero-slide-2">
+            <div class="container hero-content">
+                <span class="hero-badge">Encaixxe</span>
+                <h1>Produtos para deixar tudo no lugar</h1>
+                <p>Escolha por categoria e encontre a solução ideal para o seu ambiente.</p>
+
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#categorias" class="btn btn-gold">Ver categorias</a>
+                    <a href="/Produtos" class="btn btn-outline-gold">Produtos em destaque</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</section>
+
+<section id="categorias" class="container py-5">
+    <div class="text-center mb-4">
+        <span class="section-subtitle">Categorias</span>
+        <h2>Escolha por tipo de produto</h2>
+    </div>
+
+    <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+            <a href="/Produtos?categoriaId=1" class="category-card category-visual">
+                <span class="category-icon">▦</span>
+                <strong>Estantes</strong>
+                <small>Organização vertical</small>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="/Produtos?categoriaId=2" class="category-card category-visual">
+                <span class="category-icon">▤</span>
+                <strong>Mesas</strong>
+                <small>Praticidade no dia a dia</small>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="/Produtos?categoriaId=3" class="category-card category-visual">
+                <span class="category-icon">▣</span>
+                <strong>Gaveteiros</strong>
+                <small>Tudo no lugar certo</small>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="/Produtos?categoriaId=4" class="category-card category-visual">
+                <span class="category-icon">◫</span>
+                <strong>Organizadores</strong>
+                <small>Soluções multiuso</small>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="produtos" class="products-section py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <span class="section-subtitle">Destaques</span>
+            <h2>Produtos em destaque</h2>
+            <p class="text-muted">Selecionamos alguns produtos especiais para você conhecer.</p>
+        </div>
+
+        <div class="row g-4">
+            @if (Model?.Items != null && Model.Items.Any())
+            {
+                foreach (var produto in Model.Items)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-placeholder">
+                                @if (!string.IsNullOrWhiteSpace(produto.ImagemUrl))
+                                {
+                                    <img src="@produto.ImagemUrl" alt="@produto.Nome" class="product-card-img" />
+                                }
+                                else
+                                {
+                                    <span>@produto.CategoriaNome</span>
+                                }
+                            </div>
+
+                            <div class="product-info">
+                                <h5>@produto.Nome</h5>
+                                <p>@produto.Descricao</p>
+
+                                <small class="text-muted">
+                                    Código: @produto.Codigo
+                                </small>
+
+                                <br />
+
+                                <strong>
+                                    @(produto.Preco.HasValue
+                                        ? produto.Preco.Value.ToString("C")
+                                        : "Consultar valor")
+                                </strong>
+
+                                <a class="btn btn-gold w-100 mt-3"
+                                   href="https://wa.me/5500000000000?text=Olá! Tenho interesse no produto @produto.Nome"
+                                   target="_blank">
+                                    Chamar no WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p>Nenhum produto encontrado.</p>
+                </div>
+            }
+            }
+        </div>
+    </div>
+</section>

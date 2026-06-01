@@ -1,0 +1,126 @@
+﻿@model Encaixxe.Web.Models.ProdutoCatalogoViewModel
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<section class="page-header">
+    <div class="container">
+        <h1>Catálogo de Produtos</h1>
+        <p>Confira os produtos Agraplast disponíveis na Encaixxe.</p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <form method="get" class="catalog-filter row g-3 mb-5">
+        <div class="col-12 col-md-4">
+            <input type="text"
+                   name="q"
+                   value="@Model.Q"
+                   class="form-control"
+                   placeholder="Buscar produto..." />
+        </div>
+
+        <div class="col-12 col-md-3">
+            <select name="categoriaId" class="form-select" asp-items="Model.Categorias">
+                <option value="">Todas as categorias</option>
+            </select>
+        </div>
+
+        <div class="col-12 col-md-3">
+            <select name="marcaId" class="form-select" asp-items="Model.Marcas">
+                <option value="">Todas as marcas</option>
+            </select>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <button class="btn btn-gold w-100" type="submit">
+                Filtrar
+            </button>
+        </div>
+    </form>
+
+    <div class="row g-4">
+        @if (Model.Produtos?.Items != null && Model.Produtos.Items.Any())
+        {
+            foreach (var produto in Model.Produtos.Items)
+            {
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image-placeholder">
+                            @if (!string.IsNullOrWhiteSpace(produto.ImagemUrl))
+                            {
+                                <img src="@produto.ImagemUrl" alt="@produto.Nome" class="product-card-img" />
+                            }
+                            else
+                            {
+                                <span>@produto.CategoriaNome</span>
+                            }
+                        </div>
+
+                        <div class="product-info">
+                            <h5>@produto.Nome</h5>
+                            <p>@produto.Descricao</p>
+
+                            <strong>
+                                @(produto.Preco.HasValue
+                                    ? produto.Preco.Value.ToString("C")
+                                    : "Consultar valor")
+                            </strong>
+
+                            <a class="btn btn-outline-dark w-100 mt-3"
+                               asp-controller="Produtos"
+                               asp-action="Detalhes"
+                               asp-route-id="@produto.Id">
+                                Ver detalhes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Nenhum produto encontrado.</p>
+        }
+    </div>
+
+    @if (Model.Produtos != null && Model.Produtos.TotalPages > 1)
+    {
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+
+                @if (Model.Produtos.Page > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/Produtos?page=@(Model.Produtos.Page - 1)&q=@Model.Q&categoriaId=@Model.CategoriaId&marcaId=@Model.MarcaId">
+                            Anterior
+                        </a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.Produtos.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.Produtos.Page ? "active" : "")">
+                        <a class="page-link"
+                           href="/Produtos?page=@i&q=@Model.Q&categoriaId=@Model.CategoriaId&marcaId=@Model.MarcaId">
+                            @i
+                        </a>
+                    </li>
+                }
+
+                @if (Model.Produtos.Page < Model.Produtos.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/Produtos?page=@(Model.Produtos.Page + 1)&q=@Model.Q&categoriaId=@Model.CategoriaId&marcaId=@Model.MarcaId">
+                            Próxima
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    }
+</section>

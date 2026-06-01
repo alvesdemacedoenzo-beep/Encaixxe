@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "Encaixxe.Api\\Encaixxe.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Encaixxe.Web\\Encaixxe.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

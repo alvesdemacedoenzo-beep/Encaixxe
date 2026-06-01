@@ -1,0 +1,118 @@
+﻿@model Encaixxe.Web.Models.ProdutoDetalhesViewModel
+
+@{
+    ViewData["Title"] = Model.Produto.Nome;
+}
+<section class="container pt-4">
+    <nav class="breadcrumb-encaixxe">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/Produtos">Produtos</a>
+        <span>/</span>
+        <a href="/Produtos?categoriaId=@Model.Produto.CategoriaId">
+            @Model.Produto.CategoriaNome
+        </a>
+        <span>/</span>
+        <strong>@Model.Produto.Nome</strong>
+    </nav>
+</section>
+<section class="container py-5">
+    <div class="row g-5 align-items-center">
+        <div class="col-12 col-lg-6">
+            <div class="product-detail-image">
+                @if (!string.IsNullOrWhiteSpace(Model.Produto.ImagemUrl))
+                {
+                    <img src="@Model.Produto.ImagemUrl" alt="@Model.Produto.Nome" class="img-fluid" />
+                }
+                else
+                {
+                    <span>@Model.Produto.CategoriaNome</span>
+                }
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <span class="section-subtitle">@Model.Produto.CategoriaNome</span>
+            <h1>@Model.Produto.Nome</h1>
+
+            <p class="lead">@Model.Produto.Descricao</p>
+
+            <ul class="product-specs product-specs-card">
+                <li><strong>Código:</strong> @Model.Produto.Codigo</li>
+                <li><strong>Marca:</strong> @Model.Produto.MarcaNome</li>
+                <li><strong>Material:</strong> @(Model.Produto.Material ?? "Consultar")</li>
+                <li><strong>Medidas:</strong> @(Model.Produto.Medidas ?? "Consultar")</li>
+                <li><strong>Cor:</strong> @(Model.Produto.Cor ?? "Consultar")</li>
+            </ul>
+
+            <h3 class="my-4">
+                @(Model.Produto.Preco.HasValue
+                    ? Model.Produto.Preco.Value.ToString("C")
+                    : "Consultar valor")
+            </h3>
+
+            <div class="product-actions">
+                <a class="btn btn-gold"
+                   href="https://wa.me/5500000000000?text=Olá! Tenho interesse no produto @Model.Produto.Nome"
+                   target="_blank">
+                    Consultar no WhatsApp
+                </a>
+
+                <a class="btn btn-outline-dark" href="/Produtos">
+                    Voltar ao catálogo
+                </a>
+            </div>
+    </div>
+
+    @if (Model.ProdutosRelacionados.Any())
+    {
+        <section class="container py-5 mt-5">
+            <div class="text-center mb-4">
+                <span class="section-subtitle">Veja também</span>
+                <h2 class="related-products-title">
+                    Produtos relacionados
+                </h2>
+            </div>
+
+            <div class="row g-4">
+                @foreach (var produto in Model.ProdutosRelacionados)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-image-placeholder">
+                                @if (!string.IsNullOrWhiteSpace(produto.ImagemUrl))
+                                {
+                                    <img src="@produto.ImagemUrl"
+                                         alt="@produto.Nome"
+                                         class="product-card-img" />
+                                }
+                                else
+                                {
+                                    <span>@produto.CategoriaNome</span>
+                                }
+                            </div>
+
+                            <div class="product-info">
+                                <h5>@produto.Nome</h5>
+                                <p>@produto.Descricao</p>
+
+                                <strong>
+                                    @(produto.Preco.HasValue
+                                        ? produto.Preco.Value.ToString("C")
+                                        : "Consultar valor")
+                                </strong>
+
+                                <a class="btn btn-gold w-100 mt-3"
+                                   asp-controller="Produtos"
+                                   asp-action="Detalhes"
+                                   asp-route-id="@produto.Id">
+                                    Ver detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+</section>

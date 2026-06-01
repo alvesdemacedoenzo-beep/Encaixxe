@@ -1,0 +1,78 @@
+﻿@model Encaixxe.Web.Models.ProdutoFormViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="col-md-6">
+    <label asp-for="Produto.Nome" class="form-label">Nome</label>
+    <input asp-for="Produto.Nome" class="form-control" />
+</div>
+
+<div class="col-md-6">
+    <label asp-for="Produto.Codigo" class="form-label">Código</label>
+    <input asp-for="Produto.Codigo" class="form-control" />
+</div>
+
+<div class="col-12">
+    <label asp-for="Produto.Descricao" class="form-label">Descrição</label>
+    <textarea asp-for="Produto.Descricao" class="form-control" rows="4"></textarea>
+</div>
+
+<div class="col-md-6">
+    <label asp-for="Produto.CategoriaId" class="form-label">Categoria</label>
+    <select asp-for="Produto.CategoriaId"
+            asp-items="Model.Categorias"
+            class="form-select">
+        <option value="">Selecione uma categoria</option>
+    </select>
+</div>
+
+<div class="col-md-6">
+    <label asp-for="Produto.MarcaId" class="form-label">Marca</label>
+    <select asp-for="Produto.MarcaId"
+            asp-items="Model.Marcas"
+            class="form-select">
+        <option value="">Selecione uma marca</option>
+    </select>
+</div>
+
+<div class="col-md-4">
+    <label asp-for="Produto.Preco" class="form-label">Preço</label>
+    <input asp-for="Produto.Preco" class="form-control" type="number" step="0.01" />
+</div>
+
+<div class="col-md-4">
+    <label asp-for="Produto.Material" class="form-label">Material</label>
+    <input asp-for="Produto.Material" class="form-control" />
+</div>
+
+<div class="col-md-4">
+    <label asp-for="Produto.Medidas" class="form-label">Medidas</label>
+    <input asp-for="Produto.Medidas" class="form-control" />
+</div>
+
+<div class="col-md-4">
+    <label asp-for="Produto.Cor" class="form-label">Cor</label>
+    <input asp-for="Produto.Cor" class="form-control" />
+</div>
+
+<input type="hidden" asp-for="Produto.ImagemUrl" />
+
+<div class="col-12">
+    <label asp-for="ImagemArquivo" class="form-label">Imagem do Produto</label>
+    <input asp-for="ImagemArquivo" class="form-control" type="file" accept="image/*" />
+
+    @if (!string.IsNullOrWhiteSpace(Model.Produto.ImagemUrl))
+    {
+        <div class="mt-3">
+            <p class="mb-2">Imagem atual:</p>
+            <img src="@Model.Produto.ImagemUrl"
+                 alt="@Model.Produto.Nome"
+                 style="max-width: 180px; border-radius: 12px;" />
+        </div>
+    }
+</div>
+
+<div class="col-md-6 form-check ms-2 mt-4">
+    <input asp-for="Produto.Destaque" class="form-check-input" />
+    <label asp-for="Produto.Destaque" class="form-check-label">Produto em destaque</label>
+</div>

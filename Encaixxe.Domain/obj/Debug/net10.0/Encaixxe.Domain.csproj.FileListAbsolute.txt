@@ -1,0 +1,11 @@
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\bin\Debug\net10.0\Encaixxe.Domain.deps.json
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\bin\Debug\net10.0\Encaixxe.Domain.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\bin\Debug\net10.0\Encaixxe.Domain.pdb
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.AssemblyInfoInputs.cache
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.AssemblyInfo.cs
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.csproj.CoreCompileInputs.cache
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\refint\Encaixxe.Domain.dll
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\Encaixxe.Domain.pdb
+C:\Users\DESKTOP\source\repos\Encaixxe\Encaixxe.Domain\obj\Debug\net10.0\ref\Encaixxe.Domain.dll

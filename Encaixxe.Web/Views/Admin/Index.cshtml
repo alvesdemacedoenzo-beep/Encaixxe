@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Painel Admin";
+}
+
+<section class="container py-5">
+    <span class="section-subtitle">Admin</span>
+    <h1>Painel Administrativo</h1>
+    <p class="text-muted mb-4">Gerencie os dados principais do site Encaixxe.</p>
+
+    <div class="row g-4 my-4">
+        <div class="col-6 col-md-3">
+            <div class="dashboard-stat">
+                <span>Produtos</span>
+                <strong>@Model.TotalProdutos</strong>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="dashboard-stat">
+                <span>Categorias</span>
+                <strong>@Model.TotalCategorias</strong>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="dashboard-stat">
+                <span>Marcas</span>
+                <strong>@Model.TotalMarcas</strong>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="dashboard-stat">
+                <span>Destaques</span>
+                <strong>@Model.TotalDestaques</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-12 col-md-4">
+            <a href="/Admin/Produtos" class="admin-card">
+                <h3>Produtos</h3>
+                <p>Cadastrar, editar e inativar produtos.</p>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <a href="/Admin/Categorias" class="admin-card">
+                <h3>Categorias</h3>
+                <p>Gerenciar categorias do catálogo.</p>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <a href="/Admin/Marcas" class="admin-card">
+                <h3>Marcas</h3>
+                <p>Gerenciar marcas dos produtos.</p>
+            </a>
+        </div>
+    </div>
+</section>

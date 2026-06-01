@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Encaixxe.Api/Encaixxe.Api.csproj" />
+  <Project Path="Encaixxe.Application/Encaixxe.Application.csproj" />
+  <Project Path="Encaixxe.Domain/Encaixxe.Domain.csproj" />
+  <Project Path="Encaixxe.Infrastructure/Encaixxe.Infrastructure.csproj" />
+  <Project Path="Encaixxe.Web/Encaixxe.Web.csproj" />
+</Solution>

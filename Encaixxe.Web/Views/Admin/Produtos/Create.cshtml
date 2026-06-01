@@ -1,0 +1,23 @@
+﻿@model Encaixxe.Web.Models.ProdutoFormViewModel
+
+@{
+    ViewData["Title"] = "Novo Produto";
+}
+
+<section class="admin-page py-5">
+    <div class="container">
+    <span class="section-subtitle">Admin</span>
+    <h1>Novo Produto</h1>
+        <div class="admin-form-card">
+    <form method="post" enctype="multipart/form-data" class="row g-3 mt-3">
+        <partial name="~/Views/Admin/Produtos/_ProdutoForm.cshtml" model="Model" />
+
+        <div class="col-12">
+            <button class="btn btn-gold" type="submit">Salvar</button>
+            <a class="btn btn-outline-dark" href="/Admin/Produtos">Cancelar</a>
+        </div>
+
+    </form>
+        </div>
+    </div>
+</section>
